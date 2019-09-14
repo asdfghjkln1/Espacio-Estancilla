@@ -1,0 +1,93 @@
+html {
+    font-family: "Raleway", "Lato", Palatino, sans-serif;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+.main-bg{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.box{
+    position: relative;
+    display: inline-block; /* Make the width of box same as image */
+}
+.box .text{
+    position: absolute;
+    z-index: 1;
+    margin: 0 auto;
+    text-align: center;
+    top: 20%; /* Adjust this value to move the positioned div up and down */
+    color: #fff;
+    width: 90%; /* Set the width of the positioned div */
+}
+
+.main-layout{
+    position: absolute;
+    top: 50px;
+    color: #fff;
+    left: 5%;
+}
+
+.center-header{
+    font-family: "Raleway", "Roboto", Palatino, sans-serif;
+    text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.75);
+    box-shadow: black;
+    font-size: 40px;
+}
+
+.parallax-container{
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.parallax-container .parallax{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.parallax-container .parallax-image-container{
+    padding: 50px;
+}
+
+.parallax-text{
+    margin: auto;
+    width: 60%;
+    text-wrap: normal;
+}
+
+.content-text{
+    text-align: start;
+    font-size: 24px;
+    width: 60%;
+    margin: auto;
+    color: #49494a;
+    left: 0;
+}
+
+.content-title{
+    font-size: 40px;
+    margin: auto;
+    width: 60%;
+    color: #2e347f;
+    padding: 30px 0px 15px 0px;
+}
+
+.main-container{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.bread a:hover{
+    color: white !important;
+    cursor: pointer;
+}
+

@@ -56,13 +56,12 @@ export default {
               {
                   title: 'Matrimonios / Bautizos',
                   text: 'Disponemos de todo lo necesario para la realización de su evento: mesas, sillas, cocina, manteles, etc. Consultar directamente si desea arrendar el local o el servicio completo',
-                  fotos: ['e4.jpg', 'e5.jpg', 'e8.jpg', 'e10.jpg'],
+                  fotos: ['e4.jpg', 'e5.jpg', 'e10.jpg', "e12.jpg", 'e8.jpg'],
                   odd: true
               },
               {
                   title: 'Ceremonias / Graduaciones',
-                  text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, alias dolorum ea eum, fugit labore\n' +
-                      '                        maxime natus nostrum quasi quidem repudiandae unde velit veritatis? Assumenda delectus eius est',
+                  text: 'Puedes arrendar el local para conmemorar un momento importante, para ello tenemos el salón y terraza con capacidad para 100 personas',
                   fotos: ['e11.jpg', 'e13.jpg', 'e15.jpg'],
                   odd: false
               },

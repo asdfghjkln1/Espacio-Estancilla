@@ -39,7 +39,7 @@
                               <v-img width="100%" height="auto" :src="require('../../public/imagenes/' + foto)"></v-img>
                           </slide>
                           <slide v-if="item.fotos.length === 0">
-                              <v-img class="white--text" width="100%" height="auto" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
+                              <v-img class="white--text" width="100%" height="auto" :src="require('../../public/imagenes/placeholder-image.png')"></v-img>
                           </slide>
                           <hooper-navigation slot="hooper-addons"></hooper-navigation>
                       </hooper>
@@ -175,9 +175,9 @@ export default {
               },
               {
                   title: 'Piscina',
-                  text: 'Tenemos una piscina de 150 metros cuadrados más una piscina para niños.\n',
+                  text: 'Tenemos una piscina de 150 metros cuadrados más una piscina para niños. Contamos con amplios camarines, baños especializados y acceso a personas con movilidad reducida',
                   background: require('../../public/imagenes/pool.png'),
-                  fotos: [ 'r1.jpg', 'r2.jpg', 'r3.jpg', 'r4.jpg'],
+                  fotos: [ 'r5.jpg', 'r11.jpg', 'r1.jpg', 'r2.jpg', 'r3.jpg', 'r4.jpg', 'r6.jpg'],
                   photo_root: 'actividades',
                   subimg: null, /*require('../../public/imagenes/swim.png'),*/
                   title_color: '#e2dde2',
@@ -186,7 +186,7 @@ export default {
 
               {
                   title: 'Tenis (En construcción)',
-                  text: 'Próximamente instalaremos una cancha de tenis de arcilla. Prontamente indicaremos en esta sección su fecha de inauguración',
+                  text: 'Próximamente instalaremos una cancha de tenis de arcilla. Notificaremos en esta sección su fecha de inauguración',
                   background: require('../../public/imagenes/court.png'),
                   fotos: [],
                   photo_root: 'deportes',
@@ -217,7 +217,7 @@ export default {
               },
               {
                   title: 'Mesa de Pool',
-                  text: 'Tenemos una mesa de pool y todo lo necesario para jugar',
+                  text: 'Tenemos una mesa de pool disponible y todo lo necesario para jugar. Próximamente habilitaremos una segunda mesa',
                   fotos: ['eventos/e7.jpg'],
                   link: ''
               }

@@ -12,6 +12,7 @@
             <v-container>
                 <div style="padding: 25px;">
                     <h2 class="display-2">Actividades al aire libre</h2>
+                    <p class="subtitle-1" style="padding: 15px;">En Espacio Estancilla disponemos de diferentes zonas para todo tipo de actividades recreativas. Principalmente destacamos la piscina y la zona de quinchos. Se pueden arrendar por horas o por jornada completa.</p>
                 </div>
             </v-container>
             <v-layout wrap justify-center>
@@ -22,7 +23,7 @@
                                 <v-img width="100%" height="auto" :src="require('../../public/imagenes/' + foto)"></v-img>
                             </slide>
                             <slide v-if="item.fotos.length === 0">
-                                <v-img class="white--text" width="100%" height="auto" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
+                                <v-img class="white--text" width="100%" height="auto" :src="require('../../public/imagenes/placeholder-image.png')"></v-img>
                             </slide>
                             <hooper-navigation slot="hooper-addons"></hooper-navigation>
                         </hooper>
@@ -36,10 +37,8 @@
             <path class="curveDown" d="M0 0 C 50 100 80 100 100 0 Z"></path>
         </svg>
         <v-container class="section2" fluid grid-list-md>
-            <v-container>
-                <div>
+            <v-container  style="padding: 25px;">
                     <h2 class="display-2">Paseos Grupales</h2>
-                </div>
             </v-container>
             <v-layout wrap justify-center>
                 <v-flex v-for="item in items2" :key="item.title" lg6 md6 sm12>
@@ -49,7 +48,7 @@
                                 <v-img width="100%" height="auto" :src="require('../../public/imagenes/'+ foto)"></v-img>
                             </slide>
                             <slide v-if="item.fotos.length === 0">
-                                <v-img class="white--text" width="100%" height="auto" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
+                                <v-img class="white--text" width="100%" height="auto" :src="require('../../public/imagenes/placeholder-image.png')"></v-img>
                             </slide>
                             <hooper-navigation slot="hooper-addons"></hooper-navigation>
                         </hooper>
@@ -81,9 +80,11 @@
     }
     .separator-upper{
         background-color: #FFFAFA;
+        vertical-align:top;
     }
     .separator-lower{
         background-color: #EAEAEA;
+        vertical-align:top;
     }
     .curveDown{
         fill: #EAEAEA;
@@ -106,18 +107,18 @@ export default {
           items1: [
               {
                   title: 'Piscina',
-                  text: 'Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor',
-                  fotos: [ 'actividades/r1.jpg', 'actividades/r2.jpg', 'actividades/r3.jpg', 'actividades/r4.jpg', 'actividades/r5.jpg']
+                  text: 'Tenemos una piscina de 150 metros cuadrados más una piscina para niños. Contamos con amplios camarines, baños especializados y acceso a personas con movilidad reducida',
+                  fotos: [ 'actividades/r5.jpg', 'actividades/r1.jpg', 'actividades/r2.jpg', 'actividades/r3.jpg', 'actividades/r4.jpg']
               },
               {
                   title: 'Zona Quinchos',
-                  text: 'Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor',
-                  fotos: [],
+                  text: 'Prepara tu asado al aire libre',
+                  fotos: ['actividades/r10.jpg'],
               },
               {
                   title: 'Camping',
-                  text: 'Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor Lorem ipsum dolor sit amet Lorem ipsum dolor',
-                  fotos: ['actividades/r7.jpg']
+                  text: 'Amplio lugar y zonas al aire libre para compatir junto a tus amigos y familia',
+                  fotos: ['actividades/r7.jpg', 'actividades/r9.jpg']
               },
           ],
           items2: [

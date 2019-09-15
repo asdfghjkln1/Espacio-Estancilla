@@ -9,7 +9,7 @@
           <span>@Espacioestancilla</span>
        </v-system-bar>
     <Navbar></Navbar>
-    <v-content id="main-app" >
+    <v-content id="main-app">
         <v-container fluid id="main-div" v-bind:style="{ backgroundColor: main_color}">
             <router-view></router-view>
         </v-container>
@@ -20,6 +20,7 @@
 
 <style>
     #app{
+        position: relative;
         min-height: 100%;
     }
     .info_bar *{
@@ -28,6 +29,14 @@
         -khtml-user-select: text;
         -webkit-user-select: text;
         -o-user-select: text;
+    }
+
+    #main-app, #main-div{
+        margin: 0;
+        padding: 0;
+    }
+    #main-div{
+        padding-bottom: 190px;
     }
 </style>
 <script>
@@ -44,9 +53,3 @@ export default {
   }),
 };
 </script>
-<style>
-    #main-app, #main-div{
-        margin: 0;
-        padding: 0;
-    }
-</style>

@@ -33,6 +33,7 @@
     .description-container {
         padding-left: 50px;
         width: 90%;
+        height: 100%;
         overflow: hidden;
     }
     .description-container h2{
@@ -41,9 +42,17 @@
         flex-shrink: initial;
         animation: an 1s ease-out 1 both;
     }
+
+
+    .description-box{
+        display: block;
+        height: 220px;
+    }
+
     #text-description{
         width: 100%;
-        word-wrap: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .charTitle{
@@ -52,9 +61,10 @@
         animation: an .6s ease-out 1 both;
         display: inline-block;
     }
-    .char{
+    #text-description span{
         font-size: 20px;
-        height: 20px;
+        font-size: 1.4vw;
+        /*height: 20px;*/
         animation: an 1s ease-out 1 both;
         display: inline-block;
     }
@@ -69,14 +79,14 @@
 
     .beer-container{
         width: 100%;
-        height: 500px;
         position: relative;
-        border-radius: 5px;
         /*border: 1px solid #333;
         box-shadow: 0px 0px 5px #333, inset 0px 0px 2px #333;*/
     }
 
     .beer{
+        width: 100%;
+        box-shadow: 0 0 8px 8px white inset;
         position: absolute;
         opacity: 0;
         -webkit-transition: opacity 1s ease-in-out;
@@ -85,7 +95,6 @@
         -o-transition: opacity 1s ease-in-out;
         transition: opacity 1s ease-in-out;
     }
-
 
     .beer-active{
         opacity: 1;
@@ -101,11 +110,40 @@
             transform: perspective(500px) translate3d(0, 0, 0);
         }
     }
-
-    @media only screen and (max-width: 685px) {
-        .labels {
-            display: none;
+    @media only screen and (max-width: 600px) {
+        #text-description span {
+            font-size: 2.5vw;
         }
+
+        #main-title h2{
+            font-size: 3.5vw;
+        }
+        #main-title h4{
+            font-size: 2vw;
+        }
+        #text-title span{
+            font-size: 3.6vw;
+        }
+
+    }
+
+    @media only screen and (min-width: 600px) and (max-width: 960px) {
+        #text-description span {
+            font-size: 2vw;
+        }
+        #main-title{
+
+        }
+        #main-title h2{
+            font-size: 3vw;
+        }
+        #main-title h4{
+            font-size: 1.5vw;
+        }
+        #text-title span{
+            font-size: 3.6vw;
+        }
+
     }
 
 </style>
@@ -115,32 +153,37 @@
     <img class="main-bg" :src="background">
          <!--mode="out-in" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown"-->
         <v-container grid-list-xl fluid style="padding: 0 !important; margin: 0 !important;">
-            <v-row wrap align="center" justify="space-around" class="main-layout">
-            <v-col md="8" xs="6">
+            <v-row wrap align="start" justify="space-around" class="main-layout">
+            <v-col md="7" sm="10" xs="12">
                 <v-row>
-                    <v-col style="margin-left: auto">
+                    <v-col id="main-title" style="margin-left: auto">
                         <h2 class="center-header">Cerveza Artesanal <span style="color: #caa873;">Leonera</span></h2>
-                        <h4 class="subtitle-1 font-weight-regular font-italic">Cerveza artesanal hecha en codegua</h4>
+                        <h4 class="font-weight-regular font-italic">Cerveza artesanal hecha en codegua</h4>
                     </v-col>
                 </v-row>
-                <v-row>
-                    <v-col md="10" xs="12" class="labels description-container">
+                <v-row row class="description-box">
+                    <v-col md="10" sm="12" xs="12" class="description-container">
                         <h2 id="text-title" v-bind:style="{ color: selected_color}" class="text--lighten-1 display-2"> {{ selected_name }} </h2>
                         <p id="text-description" class="white--text blockquote"> {{ selected_desc }}</p>
                     </v-col>
                 </v-row>
+                <v-row class="hidden-md-and-up pa-sm-6 pa-xs-1">
+
+                </v-row>
                 <v-row>
-                    <v-col shrink xs="6" sm="2" v-for="(cerveza, index) in cervezas" :key="index">
+                    <v-col shrink xs="2" v-for="(cerveza, index) in cervezas" :key="index">
                         <v-card class="label-container" elevation="5">
-                            <v-img v-on:click="selectBeer(index)"  width="150" height="auto" aspect-ratio="0.6" :src="cerveza.label"></v-img>
+                            <v-img v-on:click="selectBeer(index)"  width="100%" height="auto" aspect-ratio="0.6" :src="cerveza.label"></v-img>
                         </v-card>
                     </v-col>
                 </v-row>
             </v-col>
-            <v-col md="4" xs="6">
-                <div class="beer-container">
-                    <v-img v-for="(cerveza, index) in cervezas" :key="index" :id="'beer' + index"  class="beer" height="100%" width="100%" contain :src="cerveza.background"></v-img>
-                </div>
+            <v-col md="3" class="hidden-sm-and-down">
+                <v-row align="center">
+                    <v-col class="beer-container">
+                        <v-img v-for="(cerveza, index) in cervezas" :key="index" :id="'beer' + index"  class="beer" aspect-ratio="0.75" contain :src="cerveza.background"></v-img>
+                    </v-col>
+                </v-row>
             </v-col>
             </v-row>
         </v-container>
@@ -166,7 +209,7 @@
                       name: 'Blonde Ale',
                       descripcion: '"Se trata de una cerveza dorada de fermentación alta, moderada intensidad que tiene una complejidad sutil-especiada, un poco de sabor a malta dulce y un final seco."',
                       color: '#e8b83f',
-                      background: require('../../public/imagenes/cerveza/blonde1.jpg'),
+                      background: require('../../public/imagenes/cerveza/blonde2.jpg'),
                     },
                     {
                         label: require('../../public/imagenes/cerveza/belgian.png'),
@@ -180,7 +223,7 @@
                         name: 'Porter',
                         descripcion: '"Una cerveza de intenso color negro, notas frutadas y leve ahumado, con un final de trazas de café y chocolate, y pronunciado aroma lupulado"',
                         color: '#dedfeb',
-                        background: require('../../public/imagenes/cerveza/porter1.jpg'),
+                        background: require('../../public/imagenes/cerveza/porter2.jpg'),
                     },
                     {
                         label: require('../../public/imagenes/cerveza/trapense.png'),
@@ -196,6 +239,7 @@
         mounted() {
             document.getElementById("beer0").classList.add("beer-active");
             this.selectBeer(0);
+            this.textAnimation()
         },
         methods: {
             selectBeer(index){
@@ -232,7 +276,7 @@
 
                 for(let i = 0; i < string2.length; i++)
                 {
-                    newDom2 += '<span class="char">' + (string2[i] === ' ' ? '&nbsp;' : string2[i])+ '</span>';
+                    newDom2 += '<span>' + (string2[i] === ' ' ? '&nbsp;' : string2[i])+ '</span>';
                 }
 
                 textTitle.innerHTML = newDom;

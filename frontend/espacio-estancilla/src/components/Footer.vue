@@ -1,6 +1,6 @@
 <template>
     <v-footer padless id="footer">
-        <v-card icon flat tile width="100%" height="auto" class="text-center" v-bind:style="{ backgroundColor: footer_background}">
+        <v-card icon flat tile width="100%" height="200px" class="text-center" v-bind:style="{ backgroundColor: footer_background}">
             <v-card-text>
                 <v-btn v-for="icon in icons" :key="icon.icon" class="mx-4">
                     <v-icon size="25px">{{ icon.icon }}</v-icon>
@@ -14,6 +14,11 @@
     </v-footer>
 </template>
 <style>
+    #footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 </style>
 
 <script>

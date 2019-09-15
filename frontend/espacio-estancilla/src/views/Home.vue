@@ -7,8 +7,10 @@
          <v-flex v-for="item in content" :key="item.title" lg4 md6 sm12>
              <v-container color="#EAEAEA" elevation="0" flat height="600px">
                  <v-card>
-                 <v-img class="white--text" width="100%" height="auto" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"></v-img>
+                     <v-img v-if="item.img === ''" class="white--text" width="100%" height="auto" :src="require('../../public/imagenes/placeholder-image.png')"></v-img>
+                     <v-img v-else class="white--text" width="100%" height="auto" :src="require('../../public/imagenes/' + item.img)"></v-img>
                  </v-card>
+
                  <v-card-title class="align-end fill-height">{{ item.title}}</v-card-title>
                  <v-divider></v-divider>
                  <p class="resumen-text"> {{ item.text }}</p>
@@ -42,14 +44,14 @@ export default {
               {
                   title: 'Piscina',
                   text: 'Disfruta de la piscina de 150 metros cuadrados y la piscina para niños! ',
-                  img: '',
+                  img: 'actividades/r6.jpg',
                   link: '/deportes'
               },
               {
                   title: 'Cerveza artesanal Leonera',
                   text: 'Queremos dar a conocer nuestra cerveza de producción artesanal propia , y posicionarnos en distintas regiones de Chile como una cerveza de excelente calidad, sabor y aroma',
-                  img: '',
-                  link: '/eventos'
+                  img: 'cerveza/blonde2.jpg',
+                  link: '/cerveza'
               },
               {
                   title: 'Paseos de colegios',
@@ -60,15 +62,15 @@ export default {
               {
                   title: 'Matrimonios y bautizos',
                   text: 'Disponemos de todo lo necesario para la realización de su evento: mesas, sillas, cocina, manteles, etc. Consultar directamente si desea arrendar el local o el servicio completo',
-                  img: '',
+                  img: 'eventos/e10.jpg',
                   link: ''
               },
-              {
+              /*{
                   title: 'Sanguchería y Cervecería',
                   text: 'Disfruta de nuestros Sandwiches en nuestro local de comida. Contamos con expendio de cerveza comercial y artesanal para complementar un buen sandwich',
                   img: '',
                   link: ''
-              }
+              }*/
           ]
       }
     }

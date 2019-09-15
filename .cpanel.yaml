@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/espacioe/public_html/
+    - /bin/cp -R frontend/espacio-estancilla $DEPLOYPATH
